@@ -1,6 +1,7 @@
 package com.alexvasilkov.gestures.sample.ex.animations;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -35,6 +36,9 @@ public class ImageAnimationActivity extends BaseSettingsActivity {
         image = findViewById(R.id.single_image);
         fullImage = findViewById(R.id.single_image_full);
         fullBackground = findViewById(R.id.single_image_back);
+
+        //设置最大缩放
+        fullImage.getController().getSettings().setMaxZoom(12f);
 
         // Loading image
         painting = Painting.list(getResources())[PAINTING_ID];
@@ -90,7 +94,8 @@ public class ImageAnimationActivity extends BaseSettingsActivity {
     }
 
     private void applyImageAnimationState(float position, boolean isLeaving) {
-        fullBackground.setAlpha(position);
+        Log.e("TESTTEST", "POS:" + position);
+        fullBackground.setAlpha(0.5f * position);
         fullBackground.setVisibility(position == 0f && isLeaving ? View.INVISIBLE : View.VISIBLE);
         fullImage.setVisibility(position == 0f && isLeaving ? View.INVISIBLE : View.VISIBLE);
     }

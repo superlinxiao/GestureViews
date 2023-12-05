@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         style="@style/App.ImageText"
@@ -9,12 +11,19 @@
         android:gravity="center_horizontal"
         android:text="@string/expand_image" />
 
+    <TextView
+        style="@style/App.ImageText"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:text="@string/expand_image" />
+
+
     <ImageView
         android:id="@+id/single_image"
         android:layout_width="144dp"
         android:layout_height="144dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="56dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
         android:scaleType="centerCrop"
         tools:src="@drawable/painting_03" />
 
@@ -23,12 +32,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/window_background"
-        android:visibility="invisible" />
+        android:alpha="0"
+        android:visibility="visible" />
 
     <com.alexvasilkov.gestures.views.GestureImageView
         android:id="@+id/single_image_full"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:visibility="invisible" />
 
-</merge>
+</RelativeLayout>
