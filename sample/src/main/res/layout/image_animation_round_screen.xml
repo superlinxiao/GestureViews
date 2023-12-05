@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
@@ -17,6 +16,17 @@
         android:layout_marginTop="56dp"
         android:scaleType="centerCrop"
         tools:src="@drawable/painting_03" />
+
+    <ImageView
+        android:id="@+id/single_image2"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
+        tools:src="@drawable/painting_03" />
+
 
     <View
         android:id="@+id/single_image_back"
