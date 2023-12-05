@@ -3,6 +3,7 @@ package com.alexvasilkov.gestures.sample.ex.image.viewer;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.alexvasilkov.gestures.Settings;
 import com.alexvasilkov.gestures.sample.R;
 import com.alexvasilkov.gestures.sample.base.BaseSettingsActivity;
 import com.alexvasilkov.gestures.sample.ex.utils.GlideHelper;
@@ -32,6 +33,7 @@ public class ImageViewerActivity extends BaseSettingsActivity {
         // Applying custom settings (note, that all settings can be also set in XML)
         imageViewer.getController().getSettings()
                 .setMaxZoom(6f)
+                .setMinZoom(0.5f)
                 .setDoubleTapZoom(3f);
 
         imageViewer.setOnClickListener(view -> showToast("Single click"));
@@ -43,6 +45,12 @@ public class ImageViewerActivity extends BaseSettingsActivity {
 
         final Painting painting = Painting.list(getResources())[PAINTING_ID];
         GlideHelper.loadFull(imageViewer, painting.imageId, painting.thumbId);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onSettingsChanged();
     }
 
     private void showToast(String text) {
