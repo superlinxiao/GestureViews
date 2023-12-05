@@ -35,6 +35,8 @@ public class ImageViewerActivity extends BaseSettingsActivity {
                 .setMaxZoom(6f)
                 .setMinZoom(0.5f)
                 .setDoubleTapZoom(3f);
+        //设置了缩放属性后，需要重新调用一下
+        onSettingsChanged();
 
         imageViewer.setOnClickListener(view -> showToast("Single click"));
 
@@ -50,7 +52,6 @@ public class ImageViewerActivity extends BaseSettingsActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        onSettingsChanged();
     }
 
     private void showToast(String text) {
